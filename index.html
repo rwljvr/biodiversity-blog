@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodiversity: Our Planet's Living Treasure</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 40px rgba(0,0,0,0.3);
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0 Q300,60 600,30 T1200,0 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.1)"/></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            position: relative;
+            z-index: 1;
+            opacity: 0.95;
+        }
+
+        nav {
+            background: #2c3e50;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 5px 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #3498db;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%234CAF50" width="1200" height="400"/><circle fill="%232E7D32" cx="200" cy="200" r="80"/><circle fill="%23388E3C" cx="600" cy="150" r="100"/><circle fill="%232E7D32" cx="1000" cy="250" r="90"/><path fill="%231B5E20" d="M0,300 Q300,250 600,300 T1200,300 L1200,400 L0,400 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        section {
+            padding: 60px 20px;
+        }
+
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            border-radius: 2px;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.8em;
+            margin: 30px 0 15px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #3498db;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .card h3 {
+            color: #3498db;
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        .domain-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .domain-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .domain-card h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .threat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .threat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #e74c3c;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .threat-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .threat-card h3 {
+            color: #e74c3c;
+            font-size: 1.4em;
+            margin-top: 0;
+        }
+
+        .stats-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .stats-box h3 {
+            color: white;
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .action-card {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .action-card:hover {
+            transform: scale(1.05);
+        }
+
+        .action-card h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+        }
+
+        .cta-section h2::after {
+            background: white;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #FF6B6B;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #2ecc71;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .hero h2 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌍 Biodiversity Conservation</h1>
+            <p>Sustaining the Circle of Life</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#origin">Origin</a></li>
+                <li><a href="#importance">Importance</a></li>
+                <li><a href="#threats">Threats</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#action">Take Action</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero">
+            <h2>Every Species Matters</h2>
+            <p>Biodiversity is the foundation of life on Earth, providing essential resources and services that sustain all living organisms, including humans.</p>
+        </div>
+
+        <section id="intro">
+            <div class="section-content">
+                <h2>What is Biodiversity?</h2>
+                <p>Biodiversity, or biological diversity, represents the total variety of life on Earth. It encompasses the incredible range of organisms, from microscopic bacteria to towering trees and complex animals, all interconnected in the web of life.</p>
+                
+                <div class="highlight">
+                    <h3>Three Levels of Biodiversity</h3>
+                    <p><strong>Genetic Diversity:</strong> Variation in genes within species, allowing populations to adapt to changing environments.</p>
+                    <p><strong>Species Diversity:</strong> The variety of different species in an ecosystem or on Earth as a whole.</p>
+                    <p><strong>Ecosystem Diversity:</strong> The variety of habitats, communities, and ecological processes in the biosphere.</p>
+                </div>
+
+                <h3>The Tree of Life: Three Domains</h3>
+                <div class="domain-section">
+                    <div class="domain-card">
+                        <h3>🦠 Bacteria</h3>
+                        <p>Microscopic, unicellular prokaryotes found everywhere on Earth. Some produce their own food (autotrophs), while others consume organic matter (heterotrophs).</p>
+                    </div>
+                    <div class="domain-card">
+                        <h3>🔬 Archaea</h3>
+                        <p>Superficially similar to bacteria but with significant genetic differences. Many are extremophiles, thriving in extreme environments like hot springs and deep ocean vents.</p>
+                    </div>
+                    <div class="domain-card">
+                        <h3>🌱 Eukarya</h3>
+                        <p>Includes all organisms with complex cells containing nuclei: plants, animals, fungi, and protists. Ranges from unicellular algae to multicellular organisms like humans.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="origin">
+            <div class="section-content">
+                <h2>Origin of Biodiversity</h2>
+                <p>Why does so much biodiversity exist on Earth? The answer lies in billions of years of evolution through natural selection.</p>
+
+                <h3>Evolution and Natural Selection</h3>
+                <p>Evolution is the change in inheritable traits in a population over generations. Charles Darwin and Alfred Wallace independently discovered natural selection as the primary mechanism driving evolution.</p>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>Variation</h3>
+                        <p>Individuals within populations possess different traits due to genetic variation.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Selection</h3>
+                        <p>Individuals with traits better suited to their environment are more likely to survive and reproduce.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Inheritance</h3>
+                        <p>Beneficial traits are passed on to offspring, becoming more common over time.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Time</h3>
+                        <p>Over billions of years, this process has created the incredible diversity of life we see today.</p>
+                    </div>
+                </div>
+
+                <div class="highlight">
+                    <h3>⚠️ Evolution in Action Today</h3>
+                    <p>Evolution isn't just ancient history—it has real consequences in our modern world:</p>
+                    <ul>
+                        <li><strong>Pesticide resistance</strong> in insects threatens crop production</li>
+                        <li><strong>Antibiotic resistance</strong> in bacteria creates superbugs that are difficult to treat</li>
+                        <li><strong>Viral evolution</strong> can increase disease severity and transmission</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="importance">
+            <div class="section-content">
+                <h2>Why Biodiversity Matters</h2>
+                <p>Biodiversity is not just beautiful—it's essential for human survival and wellbeing. Here's how it impacts our lives:</p>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>💊 Human Health</h3>
+                        <p>About 25% of modern drugs contain plant extracts. Medications like aspirin, codeine, and vincristine (for cancer treatment) all come from natural sources. Animal venoms are being researched for new medicines.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🌾 Agriculture</h3>
+                        <p>Crop diversity ensures food security. The Andes region maintains thousands of potato varieties, each adapted to specific conditions. Low diversity can be catastrophic—remember the Irish potato famine.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🐟 Wild Food Sources</h3>
+                        <p>Aquatic resources provide primary protein for about 1 billion people worldwide. However, global fisheries production has declined since 1990 due to overfishing.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🎨 Aesthetic & Cultural Value</h3>
+                        <p>Biodiversity enriches our lives through natural beauty, inspiring art, literature, and cultural practices. It provides recreational opportunities and supports tourism industries.</p>
+                    </div>
+                </div>
+
+                <div class="stats-box">
+                    <h3>25%</h3>
+                    <p style="font-size: 1.2em;">of modern medications contain plant-derived compounds</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="threats">
+            <div class="section-content">
+                <h2>Threats to Biodiversity</h2>
+                <p>Biodiversity is declining at an alarming rate. Current extinction rates are several times higher than the natural background rate, leading scientists to declare we're in the midst of the <strong>6th Mass Extinction</strong>—and this time, it's caused by human activities.</p>
+
+                <div class="stats-box">
+                    <h3>⚠️ Crisis Alert</h3>
+                    <p style="font-size: 1.1em;">Current extinction rates are several times higher than the natural background rate of 1 per million species per year</p>
+                </div>
+
+                <h3>Major Threats</h3>
+                <div class="threat-grid">
+                    <div class="threat-card">
+                        <h3>🏗️ Habitat Loss</h3>
+                        <p>Deforestation, urbanization, and agricultural expansion destroy natural habitats, leaving species with nowhere to live. This is the #1 threat to biodiversity worldwide.</p>
+                    </div>
+                    <div class="threat-card">
+                        <h3>🎣 Overharvesting</h3>
+                        <p>Excessive hunting, fishing, and harvesting of species faster than they can reproduce. Many fisheries have collapsed, and numerous species face extinction from overexploitation.</p>
+                    </div>
+                    <div class="threat-card">
+                        <h3>👾 Invasive Species</h3>
+                        <p>Non-native species introduced to new environments can devastate local ecosystems. Examples include the brown tree snake in Guam, which has driven multiple bird species to extinction.</p>
+                    </div>
+                    <div class="threat-card">
+                        <h3>🌡️ Climate Change</h3>
+                        <p>Rising temperatures, changing precipitation patterns, and extreme weather events force species to adapt, migrate, or face extinction. Many cannot adapt fast enough.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solutions">
+            <div class="section-content">
+                <h2>Preserving Biodiversity</h2>
+                <p>Hope is not lost! We have the knowledge and tools to protect and restore biodiversity. Here are proven strategies that work:</p>
+
+                <h3>Policy and Legal Protection</h3>
+                <div class="action-grid">
+                    <div class="action-card">
+                        <h3>📜 CITES</h3>
+                        <p>The Convention on International Trade in Endangered Species is a multilateral treaty protecting endangered plants and animals from international trade threats.</p>
+                    </div>
+                    <div class="action-card">
+                        <h3>🦅 Endangered Species Act</h3>
+                        <p>Directs government agencies to implement recovery plans and protect critical habitats for threatened and endangered species.</p>
+                    </div>
+                    <div class="action-card">
+                        <h3>🌍 Paris Agreement</h3>
+                        <p>International agreement addressing climate change, which directly impacts biodiversity and ecosystem health worldwide.</p>
+                    </div>
+                </div>
+
+                <h3>Conservation Strategies</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>🏞️ Protected Areas</h3>
+                        <p>Preserves and sanctuaries restrict human activities, protecting land and marine ecosystems. Biodiversity hotspots—areas rich in unique species—are prioritized for protection.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🛤️ Wildlife Corridors</h3>
+                        <p>Strips of land connecting habitat fragments allow animals to move freely, promoting genetic diversity and population health.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🌱 Habitat Restoration</h3>
+                        <p>Bringing degraded areas back to their natural state through wetland reconstruction, reforestation, and species reintroduction like wolves in Yellowstone.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🦁 Zoos & Captive Breeding</h3>
+                        <p>Modern zoos educate the public and breed endangered species for release into the wild, helping augment threatened populations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section" id="action">
+            <h2>What You Can Do</h2>
+            <p style="font-size: 1.2em; max-width: 800px; margin: 0 auto 30px;">Every individual action counts. Here's how you can make a difference:</p>
+            
+            <div class="action-grid" style="margin-top: 40px;">
+                <div class="action-card">
+                    <h3>🌿 Support Conservation</h3>
+                    <p>Donate to or volunteer with conservation organizations. Visit national parks and preserves—your entrance fees fund protection efforts.</p>
+                </div>
+                <div class="action-card">
+                    <h3>🛒 Consume Responsibly</h3>
+                    <p>Choose sustainable products, reduce meat consumption, buy local and organic when possible, and avoid products linked to deforestation.</p>
+                </div>
+                <div class="action-card">
+                    <h3>📢 Spread Awareness</h3>
+                    <p>Educate others about biodiversity. Use your voice on social media and in your community to advocate for environmental protection.</p>
+                </div>
+                <div class="action-card">
+                    <h3>🗳️ Vote & Advocate</h3>
+                    <p>Support political leaders and policies that prioritize environmental protection and climate action. Contact representatives about conservation issues.</p>
+                </div>
+                <div class="action-card">
+                    <h3>🏡 Create Habitat</h3>
+                    <p>Plant native species in your garden, avoid pesticides, provide water sources for wildlife, and create spaces for pollinators.</p>
+                </div>
+                <div class="action-card">
+                    <h3>♻️ Reduce Your Impact</h3>
+                    <p>Minimize waste, reduce energy consumption, use public transportation, and lower your carbon footprint to combat climate change.</p>
+                </div>
+            </div>
+
+            <a href="https://www.iucnredlist.org/" target="_blank" class="cta-button">Learn More at IUCN Red List</a>
+        </section>
+
+        <footer>
+            <p><strong>Biodiversity Conservation Blog</strong></p>
+            <p>Our planet's future depends on the choices we make today.</p>
+            <p style="margin-top: 15px; opacity: 0.8;">© 2025 | Created for Environmental Science Education</p>
+        </footer>
+    </div>
+</body>
+</html>
